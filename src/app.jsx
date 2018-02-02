@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+//sets the state for app.
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,19 +20,20 @@ class App extends Component {
       status: 'Awaiting Calculation',
     };
 
+    //binds the functions to this.
     this.onChange = this.onChange.bind(this);
     this.calculateChange = this.calculateChange.bind(this);
     this.onClick = this.onClick.bind(this);
-
   };
 
+  //function that targets the name and values.
   onChange(event) {
     const property = event.target.name;
     this.setState({
       [property]: event.target.value,
     });
   }
-
+  //click function that states the amount recieved and due and sets the state if change is due or money is owed.
   onClick() {
     const due = this.state.amountDue;
     const received = this.state.amountReceived;
@@ -47,7 +48,7 @@ class App extends Component {
       this.setState({ status: `Total change due is $${change.toFixed(2)}` });
     }
   };
-
+  //function that does the math equations for each amount of currency.
   calculateChange(change) {
 
     change *= 100;
@@ -78,7 +79,7 @@ class App extends Component {
 
     return total;
   };
-
+  // renders and returns app into jsx.
   render() {
     return (
       <div className='container'>
@@ -111,10 +112,7 @@ class App extends Component {
 
           <div className='col-md-8'>
 
-            {/* <div className={this.state.success} style={{ display: this.state.success ? 'block' : 'none' }} role='alert' type='number'> Total change due: ${this.state.change} </div>
-            <div className={this.state.bad} style={{ display: this.state.bad ? 'block' : 'none' }} role='alert' type='number'> Additional money owed </div>*/}
-
-            <div  className='card'>
+            <div className='card'>
               <div className='card-header' id='output-total'>
                 <p ref='totalOutput' id='total-output' className={this.state.success ? 'success' : 'failure'}> {this.state.status}</p>
               </div>
