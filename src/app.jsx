@@ -106,7 +106,7 @@ class App extends Component {
                 <input name='amountReceived' id='amountReceived' ref='amount-received' placeholder='Enter Amount' className='from-control' type='number' onChange={this.onChange} /*defaultValue={this.state.amountReceived}*/ />
               </div>
 
-              <button className='btn btn-primary bton-block' onClick={this.onClick} type='button'>Calculate</button>
+              <button className='btn btn-primary bton-block' onClick={this.onClick} type='button' id='button'>Calculate</button>
             </div>
           </div>
 
